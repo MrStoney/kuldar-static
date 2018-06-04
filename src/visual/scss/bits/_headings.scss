@@ -1,0 +1,59 @@
+h1, h2, h3 {
+    text-align: center;
+    vertical-align: middle;
+    padding: 0;
+}
+
+h1 {
+    font-size: 48px;
+    color: $color-digitalcash-orange;
+    margin: 0 30px;
+    line-height: 30px + 48px + 30px;
+    @include font-primary-light;
+    @include small-screen {
+      font-size: 30px;
+      margin: 0;
+      line-height: 4px + 30px + 4px;
+      margin-bottom: 10px;
+    }
+}
+
+h2 {
+    font-size: 33px;
+    color: $color-digitalcash-orange;
+    margin: 0 25px;
+    line-height: 25px + 33px + 25px;
+    @include font-primary-light;
+    @include small-screen {
+      font-size: 22px;
+      margin: 0;
+      line-height: 10px + 22px + 10px;
+    }
+
+    &.alert {
+      color: $color-text-alert;
+      @include font-primary-semibold;
+    }
+}
+
+h3 {
+    text-transform: none;
+    font-size: 23px;
+    line-height: 25px + 23px + 25px;
+    color: $color-text-gray;
+    margin: 0 25px;
+
+    @include small-screen {
+      font-size: 20px;
+      margin: 0;
+      line-height: 15px + 20px + 15px;
+    }
+
+    &.orange {
+      color: $color-digitalcash-orange;
+    }
+}
+
+p, ul, ol {
+    color: $color-text;
+}

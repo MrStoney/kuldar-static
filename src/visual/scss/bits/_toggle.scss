@@ -1,0 +1,109 @@
+.toggle-container {
+  display: inline-block;
+  margin: 16px;
+  height: 42px;
+
+  input {
+    display: none;
+
+    $horizontal-slide: 18px;
+
+    // add default box-sizing for this scope
+    &,
+    &:after,
+    & *,
+    & *:after,
+    & + .toggle-btn {
+      box-sizing: border-box;
+      &::selection {
+        background: none;
+      }
+    }
+
+    + .toggle {
+      outline: 0;
+      margin: 0;
+      display: inline-block;
+      min-width: 54px;
+      height: 42px;
+      cursor: pointer;
+      user-select: none;
+      background: #fbfbfb;
+      border-radius: 2em;
+      box-sizing: border-box;
+      padding: 3px (3px+$horizontal-slide) 3px 3px;
+      pointer-events: auto;
+      touch-action: none;
+
+      .toggle-knob {
+        pointer-events: none;
+        display: inline-block;
+        min-width: 36px;
+        height: 36px;
+        left: 0;
+        border-radius: 2em;
+        position: relative;
+
+        @include button-gradient-lightgray;
+        transition:
+            left .25s cubic-bezier(
+                  0.175, 0.885, 0.320, 1.275
+            );
+      }
+      &:hover {
+        .toggle-knob {
+          @include button-gradient-lightgray-hover;
+        }
+      }
+      .knob-label {
+        @include no-select;
+        white-space: nowrap;
+        text-align: center;
+        display: inline-block;
+        line-height: 36px;
+        font-size: 18px;
+        width: 100%;
+        padding: 0 4px;
+        color: $color-text-dark;
+        transition: color .2s ease;
+      }
+
+      &.dragged {
+        .toggle-knob {
+          left: $horizontal-slide / 2;
+        }
+      }
+    }
+
+    &:checked + .toggle {
+      .knob-label {
+        color: #fff;
+      }
+    }
+
+    &:checked + .toggle {
+      .toggle-knob {
+        left: $horizontal-slide;
+        @include button-gradient-orange;
+      }
+      &:hover .toggle-knob {
+        @include button-gradient-orange-hover;
+      }
+    }
+
+    &:checked + .toggle {
+      &.dragged {
+        .toggle-knob {
+          left: $horizontal-slide / 2;
+        }
+      }
+    }
+
+    &:disabled + .toggle {
+      @include button-gradient-disabled;
+      .knob-label {
+        color: $color-text-gray;
+      }
+    }
+  }
+}

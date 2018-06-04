@@ -1,0 +1,38 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, .5);
+  z-index: 10000;
+  display: none;
+  opacity: 0;
+  transition: opacity 1s linear;
+  align-items: center;
+  justify-content: center;
+  .modal {
+    background-color: #fff;
+    border-radius: 10px;
+    display: block;
+    padding: 80px 50px;
+    &.error {
+      color: red;
+    }
+  }
+}
+.modal-overlay.disappearing {
+  transition: opacity .2s ease-in;
+}
+.modal-overlay {
+  .spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 170px;
+    height: 170px;
+    .static-icon {
+      color: #fff;
+    }
+  }
+}

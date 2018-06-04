@@ -1,0 +1,38 @@
+$color-digitalcash-orange: #d68a1d;
+$color-digitalcash-darkblue: #16163d;
+
+$color-text: #444;
+$color-text-dark: #222;
+$color-text-gray: #999;
+$color-text-alert: #944;
+
+$color-icon-gray: #999;
+
+$color-background: #fefefe;
+
+@mixin button-hover() {
+  &:active:not([disabled]), &:hover:not([disabled]) {
+    @content;
+  }
+}
+@mixin button-active() {
+  &:not([disabled]):active {
+    @content;
+  }
+}
+@mixin button-gradient-disabled() {
+  background-image: linear-gradient(#ccc 2%, #aaa 86%);
+}
+@mixin button-gradient-lightgray() {
+  background-image: linear-gradient(darken(#fff, 7%) 2%, darken(#fff, 12%) 86%);
+}
+@mixin button-gradient-lightgray-hover() {
+  background-image: linear-gradient(darken(#fff, 10%) 2%, darken(#fff, 15%) 86%);
+}
+
+@mixin button-gradient-orange() {
+  background-image: linear-gradient(lighten($color-digitalcash-orange, 12%) 2%, $color-digitalcash-orange 100%);
+}
+@mixin button-gradient-orange-hover() {
+  background-image: linear-gradient($color-digitalcash-orange 2%, darken($color-digitalcash-orange, 5%) 100%);
+}

@@ -1,0 +1,12 @@
+$screen-small-max: 768px;
+
+@mixin small-screen {
+   @media (max-width: $screen-small-max) {
+       @content;
+   }
+}
+@mixin large-screen {
+   @media (min-width: $screen-small-max + 1) {
+       @content;
+   }
+}

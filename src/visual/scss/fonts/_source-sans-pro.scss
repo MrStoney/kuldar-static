@@ -1,0 +1,12 @@
+@mixin font-primary() {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 400;
+}
+@mixin font-primary-light() {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 300;
+}
+@mixin font-primary-semibold() {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 600;
+}

@@ -1,0 +1,256 @@
+@import "colors";
+
+
+button::-moz-focus-inner {
+  border: 0;
+}
+.button {
+  &:not([disabled]){
+    cursor: pointer;
+  }
+  padding: 0;
+  border: none;
+  color: $color-text;
+}
+
+.text-button {
+  position: relative;
+  &.small, &.medium {
+    white-space: nowrap;
+
+    @include button-gradient-lightgray;
+    @include button-hover {
+      @include button-gradient-lightgray-hover;
+    }
+    @include button-active {
+      @include button-gradient-lightgray;
+    }
+    &.primary {
+      color: #fff;
+      @include button-gradient-orange;
+      @include button-hover {
+        @include button-gradient-orange-hover;
+      }
+      @include button-active {
+        @include button-gradient-orange;
+      }
+    }
+    &:disabled {
+      color: $color-text-gray;
+      @include button-gradient-disabled;
+    }
+
+  }
+  &.medium {
+    border-radius: 5px;
+    margin: 10px;
+    line-height: 50px;
+    min-height: 50px;
+    min-width: 180px;
+    .button-text {
+      font-size: 23px;
+      padding: 0 20px;
+      white-space: normal;
+    }
+    .button-icon {
+      margin: 11px;
+    }
+    @include small-screen {
+      width: 100%;
+      margin: 10px 0;
+    }
+  }
+  &.small {
+    border-radius: 5px;
+    line-height: 42px;
+    height: 42px;
+    margin: 16px;
+    min-width: 42px;
+    .button-text {
+      font-size: 15px;
+      padding: 0 20px;
+    }
+    .button-icon {
+      margin: 11px;
+    }
+    @include small-screen {
+      margin: 8px 0;
+    }
+  }
+  .button-text {
+    vertical-align: middle;
+    @include font-primary-semibold;
+  }
+  &.button-with-icon {
+    .button-text {
+      padding-left: 0;
+    }
+  }
+  .button-icon {
+    color: $color-icon-gray;
+  }
+}
+
+/** Do not use .icon-button, because fontello styles every class that starts with 'icon-' */
+.image-button {
+  margin: 25px 25px 0 25px;
+  background: transparent;
+  .button-icon {
+    position: relative;
+    width: 64px;
+    height: 64px;
+    display: block;
+    font-size: 42px;
+    line-height: 64px;
+    text-align: center;
+    border-radius: 5px;
+    margin: auto;
+    color: $color-digitalcash-orange;
+  }
+  @include button-hover {
+    .button-icon {
+      color: lighten($color-digitalcash-orange, 10%);
+    }
+    .button-text {
+      color: $color-text;
+    }
+  }
+  @include button-active {
+    .button-text {
+      color: $color-text-dark;
+    }
+    .button-icon {
+      color: $color-digitalcash-orange;
+    }
+  }
+  &:disabled {
+    color: $color-text-gray;
+    .button-icon {
+      color: $color-text-gray;
+    }
+  }
+  .button-text {
+    color: $color-text-gray;
+    padding-left: 0;
+    display: block;
+    line-height: 25px;
+    height: 25px;
+    font-size: 13px;
+    vertical-align: bottom;
+    @include font-primary-semibold;
+  }
+}
+
+.top-menu {
+  .digitalcash-logo {
+    @include small-screen {
+      display: none;
+    }
+  }
+
+  .back-button, .home-button, .logout-button {
+    position: absolute;
+    top: 0;
+    z-index: 10;
+    @include small-screen {
+      margin: 10px;
+      .button-icon {
+        width: 35px;
+        height: 35px;
+        font-size: 25px;
+        line-height: 35px;
+      }
+      @include button-active {
+        .button-icon {
+          box-shadow: none !important;
+        }
+      }
+    }
+  }
+  .back-button {
+    left: 0;
+    display: none;
+    @include small-screen {
+      position: fixed;
+      display: block;
+      .button-icon {
+        background: none !important;
+      }
+    }
+  }
+  .home-button {
+    right: 0;
+    display: none;
+    @include small-screen {
+      position: fixed;
+      display: block;
+      .button-icon {
+        background: none !important;
+      }
+    }
+  }
+  .logout-button {
+    right: 0;
+  }
+}
+
+.dropdown {
+  position: absolute;
+  z-index: 12;
+  bottom: 42px;
+  right: 83%;
+  font-size: 22px;
+  background-color: #fff;
+  border-radius: 15px 15px 0 15px;
+  box-shadow: 0 2px 3px 2px lighten($color-icon-gray, 10%);
+  @include small-screen {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    top: 30px;
+    left: 30px;
+    right: 30px;
+    bottom: 30px;
+    margin: 8px 0;
+    background-color: transparent;
+    box-shadow: none;
+  }
+  > div {
+    @include small-screen {
+      width: 100%;
+      flex-shrink: 1;
+      background-color: #fff;
+      border-radius: 15px 15px 15px 15px;
+      box-shadow: 0 2px 300px 280px rgba(0, 0, 0, .3);
+    }
+  }
+
+  .dropdown-item {
+    line-height: 22px;
+    font-size: 22px;
+    white-space: nowrap;
+    padding: 12px 20px 12px 8px;
+    color: $color-text;
+    cursor: pointer;
+    border-top: 1px solid lighten($color-icon-gray, 10%);
+    &:hover {
+      color: $color-text-dark;
+    }
+    &::before {
+      margin-right: 12px;
+    }
+    &:first-child {
+      border-top: none;
+    }
+    @include small-screen {
+      padding: 20px 30px;
+      white-space: normal;
+      width: 100%;
+      display: block;
+      text-align: left;
+      line-height: 35px;
+      font-size: 24px;
+    }
+  }
+}

@@ -1,0 +1,77 @@
+@import "colors";
+
+.static-icon {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  font-size: 32px;
+  line-height: 32px;
+  margin: 16px;
+  color: $color-icon-gray;
+  &:before {
+    margin: 0;
+  }
+  &.small {
+    width: 20px;
+    height: 20px;
+    margin: 11px;
+    font-size: 20px;
+    line-height: 20px;
+  }
+  &.big {
+    font-size: 70px;
+    line-height: 70px;
+    width: 70px;
+    height: 70px;
+    margin: 16px;
+  }
+  &.active {
+    color: $color-digitalcash-orange;
+  }
+}
+
+.currency-logo {
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  &.x2 {
+    width: 2em;
+    height: 2em;
+  }
+  &.x3 {
+    width: 3em;
+    height: 3em;
+  }
+}
+
+.currency-logo-btc {
+  background-image: url("../gfx/currency/BTC.svg");
+}
+
+.currency-logo-dash {
+  background-image: url("../gfx/currency/DASH.svg");
+}
+
+.digitalcash-logo {
+  background-image: url("../gfx/digitalcash-logo.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: inline-block;
+  width: 70px;
+  height: 70px;
+  @include large-screen {
+    margin-bottom: 30px;
+  }
+
+  &.big {
+    width: 80px;
+    height: 80px;
+    @include large-screen {
+      width: 100px;
+      height: 100px;
+      margin: 0;
+    }
+  }
+}
